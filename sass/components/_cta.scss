@@ -1,0 +1,75 @@
+//////////CTA//////////
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  @include respond(medium) {
+    padding: 2.5rem 0;
+  }
+
+  &-text {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+
+    @include respond(small) {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.btn {
+  position: relative;
+  font-size: var(--default-font-size);
+  border: none;
+  text-transform: uppercase;
+  border-radius: 100px;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  color: var(--color-white);
+  overflow: hidden; //as invisible btn is outside of button, it is considered as overflow.
+  cursor: pointer;
+
+  & > * {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  &-visible {
+    padding: 2rem 7.5rem;
+  }
+
+  &-invisible {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    padding: 2rem 0;
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+    animation: pulsate 1s infinite;
+  }
+
+  &:hover &-visible {
+    transform: translateY(100%);
+  }
+
+  &:hover &-invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

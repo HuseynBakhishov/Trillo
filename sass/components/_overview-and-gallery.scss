@@ -1,0 +1,137 @@
+//////////Gallery//////////
+.gallery {
+  display: flex;
+
+  &-image {
+    width: 100%;
+    display: block; //to eliminate space under the image
+  }
+}
+
+//////////Overview//////////
+.overview {
+  display: flex;
+  align-items: center;
+  border-bottom: var(--border-bottom);
+
+  @include respond(xxsmall) {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+  }
+
+  &-heading {
+    padding: 1.5rem 3rem;
+    font-size: 2.5rem;
+    font-weight: 300;
+
+    @include respond(small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
+  }
+
+  &-stars {
+    margin-right: auto;
+    display: flex; //to eliminate additional spaces among and under stars
+
+    @include respond(xxsmall) {
+      margin-left: 2rem;
+      order: 1;
+    }
+  }
+
+  &-icon-star,
+  &-icon-location {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--color-primary);
+  }
+
+  &-location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+
+    @include respond(xxsmall) {
+      justify-content: flex-end;
+      margin-right: 2rem;
+    }
+  }
+
+  &-icon-location {
+    margin-right: 0.5rem;
+  }
+
+  &-rating {
+    background-color: var(--color-primary);
+    margin-left: 3rem;
+    color: var(--color-white);
+    align-self: stretch;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include respond(xxsmall) {
+      order: 2;
+      justify-self: end;
+      margin-right: 2rem;
+    }
+
+    @include respond(small) {
+      padding: 0 1.5rem;
+    }
+
+    &-average {
+      font-size: 2.25rem;
+      font-weight: 300;
+
+      @include respond(small) {
+        font-size: 1.8rem;
+      }
+    }
+
+    &-votes {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+
+      @include respond(small) {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.btn-inline {
+  border: none;
+  color: var(--color-primary);
+  font-size: inherit;
+  border-bottom: 0.1rem solid currentColor;
+  padding-bottom: 2px;
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  //currentColor also applies to hover state of element
+
+  & span {
+    margin-left: 0.3rem;
+    transition: margin-left 0.2s;
+  }
+
+  &:hover {
+    color: var(--color-grey-dark-1);
+
+    span {
+      margin-left: 0.8rem;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}

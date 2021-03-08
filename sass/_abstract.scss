@@ -1,0 +1,94 @@
+////Colors
+// Primary: #eb2f64
+// Primary light: #FF3366
+// Primary dark: #BA265D
+
+// Grey light 1: #faf9f9
+// Grey light 2: #f4f2f2
+// Grey light 3: #f0eeee
+// Grey light 4: #ccc
+
+// Grey dark 1: #333
+// Grey dark 2: #777
+// Grey dark 3: #999
+
+:root {
+  --color-primary: #eb2f64;
+  --color-primary-light: #ff3366;
+  --color-primary-dark: #ba265d;
+
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+
+  --color-white: #fff;
+
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+
+  --default-font-size: 1.6rem;
+
+  --border-bottom: 0.1rem solid var(--color-grey-light-2);
+}
+
+////Mixins
+//xlarge: 1200px / 16 = 75em
+//large: 1100px / 16 = 68.75em
+//medium: 900px / 16 = 56.25em
+//small: 600px / 16 = 37.5em
+//xsmall: 500px / 16 = 31.25em
+//xxsmall: 450px / 16 = 28.25em
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == xxsmall {
+    @media only screen and (max-width: 28.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == xsmall {
+    @media only screen and (max-width: 31.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == small {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == medium {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == large {
+    @media only screen and (max-width: 68.75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == xlarge {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+}
+
+////Animations
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
